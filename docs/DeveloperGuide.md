@@ -20,7 +20,8 @@ Step 1: Upon starting the app, the ExerciseLog class is initialized and a log is
 Step 2: The user calls the log command with the specified parameters to add a new exercise to the list. However, the user notices that they made a typo and want to change the details of the exercise that they just logged.
 <img width="682" alt="Screenshot 2023-10-22 at 22 23 59" src="https://github.com/Remy9926/tp/assets/95456114/318cd321-6516-4163-a4ce-4a9e5d5edf7b">
 
-Step 3: The user calls the update command with the information of the old exercise as well as the new information that the user wants to update with. With this, the update is done.\
+Step 3: The user calls the update command with the information of the old exercise as well as the new information that the user wants to update with. With this, the update is done.
+
 <img width="652" alt="Screenshot 2023-10-22 at 22 25 09" src="https://github.com/Remy9926/tp/assets/95456114/d07d5570-11fc-426c-877d-feb31a338f0a">
 
 ## Product scope
