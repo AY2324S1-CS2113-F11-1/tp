@@ -15,9 +15,11 @@ The update feature will be implemented by allowing users to select the task that
 Below is an example of how this feature will work:
 
 Step 1: Upon starting the app, the ExerciseLog class is initialized and a log is created for the user to log their exercises.
+
 <img width="661" alt="Screenshot 2023-10-22 at 22 21 04" src="https://github.com/Remy9926/tp/assets/95456114/933b3636-eba7-442b-bcf2-aec22ef49dba">
 
 Step 2: The user calls the log command with the specified parameters to add a new exercise to the list. However, the user notices that they made a typo and want to change the details of the exercise that they just logged.
+
 <img width="682" alt="Screenshot 2023-10-22 at 22 23 59" src="https://github.com/Remy9926/tp/assets/95456114/318cd321-6516-4163-a4ce-4a9e5d5edf7b">
 
 Step 3: The user calls the update command with the information of the old exercise as well as the new information that the user wants to update with. With this, the update is done.
