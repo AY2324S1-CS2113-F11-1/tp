@@ -10,6 +10,10 @@ public class MealCommand extends Command {
     public static final String COMMAND_WORD = "test";
     protected static ArrayList<Meal> meals;
 
+    public MealCommand() {
+        super();
+    }
+
     public MealCommand(List<String> meals) {
 
     }
