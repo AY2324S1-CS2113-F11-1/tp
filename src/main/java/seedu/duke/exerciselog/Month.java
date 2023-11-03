@@ -88,6 +88,10 @@ public class Month {
                 newCaloriesBurned);
     }
 
+    public boolean hasExercise(int day, String exerciseName, int caloriesBurned) {
+        return dates.get(day).hasExercise(exerciseName, caloriesBurned);
+    }
+
     /**
      * Returns the name of the month
      *

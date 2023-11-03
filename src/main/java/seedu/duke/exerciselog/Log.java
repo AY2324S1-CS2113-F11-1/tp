@@ -99,6 +99,10 @@ public class Log {
                 newCaloriesBurned);
     }
 
+    public boolean hasExercise(int month, int day, String exerciseName, int caloriesBurned) {
+        return exerciseLog.get(month - 1).hasExercise(day - 1, exerciseName, caloriesBurned);
+    }
+
     public int getNumberOfDays(int month) {
         return exerciseLog.get(month - 1).getNumberOfDays();
     }

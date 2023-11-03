@@ -51,6 +51,11 @@ public class UpdateLogCommand extends Command {
                 throw new IncorrectFormatException("You cannot burn a negative number of calories.");
             }
 
+            if (!Duke.exerciseLog.hasExercise(month, day, oldExerciseName.trim(), oldCaloriesBurned)) {
+                feedbackToUser = "Could not find exercise to update.";
+                return new CommandResult(feedbackToUser);
+            }
+
             Scanner scanner = new Scanner(System.in);
             System.out.println("Please specify the new exercise details:");
             String newExerciseString = scanner.nextLine();
