@@ -30,7 +30,7 @@ public class ViewLogCommand extends Command {
         super();
     }
 
-    /** view exercises month 1 day 2
+    /**
      * Assigns the view attribute a specific enum based on the scope at which the user wants to view the exercise log.
      *
      * @param viewArgs the details of the scope at which the user wants to view the exercise log.
