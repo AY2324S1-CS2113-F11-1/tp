@@ -104,6 +104,8 @@ Format: `exit`
 
 ## Command Summary
 
-{Give a 'cheat sheet' of commands here}
-
-* Add todo `todo n/TODO_NAME d/DEADLINE`
+* Log an exercise `log MONTH DAY EXERCISE_NAME CALORIES_BURNED`
+* Update an existing exercise `update MONTH DAY OLD_EXERCISE_NAME OLD_CALORIES_BURNED`
+`NEW_EXERCISE_NAME NEW_CALORIES_BURNED`
+* View existing exercises `view VIEW_TYPE VIEW_SCOPE`
+* Exit program `exit`
