@@ -18,11 +18,11 @@ import seedu.duke.commands.IncorrectCommand;
 import seedu.duke.commands.logcommands.LogCommand;
 import seedu.duke.commands.logcommands.DeleteLogCommand;
 import seedu.duke.commands.logcommands.ViewLogCommand;
+import seedu.duke.commands.logcommands.UpdateLogCommand;
 import seedu.duke.data.exception.IllegalValueException;
+import seedu.duke.commands.meal.AddCommand;
 
-/**
- * Parses user input.
- */
+
 public class Parser {
 
     public static final Pattern PERSON_INDEX_ARGS_FORMAT = Pattern.compile("(?<targetIndex>.+)");
@@ -40,8 +40,9 @@ public class Parser {
      *
      * @param userInput full user input string
      * @return the command based on the user input
+     * @throws Exception
      */
-    public Command parseCommand(String userInput) {
+    public Command parseCommand(String userInput) throws Exception {
         final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
         if (!matcher.matches()) {
             return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
@@ -83,6 +84,12 @@ public class Parser {
         case ViewLogCommand.COMMAND_WORD:
             return new ViewLogCommand(Arrays.asList(arguments.trim().split(" ")));
 
+        case UpdateLogCommand.COMMAND_WORD:
+            return new UpdateLogCommand(Arrays.asList(arguments.trim().split(" ")));
+
+        case seedu.duke.commands.meal.AddCommand.COMMAND_WORD:
+            return new AddCommand(Arrays.asList(arguments.trim().split(" ")));
+
         case GoalCommand.COMMAND_WORD:
             return new GoalCommand(userInput);
 
@@ -95,7 +102,6 @@ public class Parser {
             return new HelpCommand();
         }
     }
-
     // /**
     // * Parses arguments in the context of the add person command.
     // *
