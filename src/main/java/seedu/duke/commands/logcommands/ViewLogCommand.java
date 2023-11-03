@@ -1,6 +1,5 @@
 package seedu.duke.commands.logcommands;
 
-import java.text.NumberFormat;
 import java.util.List;
 
 import seedu.duke.commands.Command;
