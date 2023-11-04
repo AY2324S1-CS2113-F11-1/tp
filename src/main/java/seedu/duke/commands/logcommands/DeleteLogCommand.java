@@ -39,14 +39,17 @@ public class DeleteLogCommand extends Command {
             if (month <= 0 || month > 12) {
                 throw new IncorrectFormatException("The month you specified does not exist.");
             }
+
             int day = Integer.parseInt(exerciseDetails.get(1));
             if (day <= 0 || day > Duke.exerciseLog.getNumberOfDays(month)) {
                 throw new IncorrectFormatException("The day you specified does not exist for the month.");
             }
+
             String exerciseName = "";
             for (int i = 2; i < exerciseDetails.size() - 1; i++) {
                 exerciseName += exerciseDetails.get(i) + " ";
             }
+
             int caloriesBurned = Integer.parseInt(exerciseDetails.get(exerciseDetails.size() - 1));
             if (caloriesBurned < 0) {
                 throw new IncorrectFormatException("You cannot burn a negative number of calories.");
