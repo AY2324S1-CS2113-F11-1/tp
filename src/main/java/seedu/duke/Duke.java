@@ -25,8 +25,8 @@ public class Duke {
     public static final String VERSION = "AddressBook Level 2 - Version 1.0";
     public static GoalList goals = new GoalList();
     public static Log exerciseLog = new Log();
-    static ArrayList<Meal> meals = new ArrayList<Meal>();
     public static StorageFile storage;
+    static ArrayList<Meal> meals = new ArrayList<Meal>();
     private TextUi ui;
     private String dirPath = "data";
     private String textFilePath = "./data/ExerciseLog.txt";

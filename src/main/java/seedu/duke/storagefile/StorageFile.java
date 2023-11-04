@@ -6,7 +6,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-import seedu.duke.Duke;
 import seedu.duke.exerciselog.Log;
 
 public class StorageFile {
