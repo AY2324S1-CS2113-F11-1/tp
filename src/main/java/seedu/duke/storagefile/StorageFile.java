@@ -61,4 +61,30 @@ public class StorageFile {
         writeFile.write(writeToFile + "\n");
         writeFile.flush();
     }
+
+    public void removeExerciseFromFile(int month, int day, String[] exerciseName, int caloriesBurned)
+            throws IOException {
+        Scanner readFile = new Scanner(textFile);
+        File tempFile = new File("./data/temp.txt");
+        FileWriter tempWriter = new FileWriter(tempFile.toPath().toString());
+
+        String removeLine = "";
+        removeLine += Integer.toString(month) + ",";
+        removeLine += Integer.toString(day) + ",";
+        removeLine += String.join("_", exerciseName);
+        removeLine += "," + Integer.toString(caloriesBurned);
+
+        while (readFile.hasNextLine()) {
+            String line = readFile.nextLine();
+            if (!line.equals(removeLine)) {
+                tempWriter.write(line + "\n");
+            }
+        }
+        readFile.close();
+        tempWriter.close();
+        textFile.delete();
+        tempFile.renameTo(textFile);
+        textFile = new File("./data/ExerciseLog.txt");
+        writeFile = new FileWriter(textFile.toPath().toString(), true);
+    }
 }

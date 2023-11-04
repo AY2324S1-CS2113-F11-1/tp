@@ -1,5 +1,7 @@
 package seedu.duke.commands.logcommands;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 import seedu.duke.commands.Command;
@@ -27,7 +29,7 @@ public class DeleteLogCommand extends Command {
      * @return CommandResult that tells the user whether an exercise was successfully removed.
      * @throws IncorrectFormatException when the command is not entered with the right type of parameters.
      */
-    public CommandResult execute() throws IncorrectFormatException {
+    public CommandResult execute() throws IncorrectFormatException, IOException {
         if (exerciseDetails.size() < 4) {
             throw new IncorrectFormatException("The delete log command needs to take at least 4 parameters!");
         }
@@ -53,11 +55,14 @@ public class DeleteLogCommand extends Command {
             feedbackToUser = Duke.exerciseLog.removeExercise(month, day, exerciseName.trim(), caloriesBurned) ?
                     "Successfully removed exercise!" :
                     "Could not find the specified exercise!";
+            Duke.storage.removeExerciseFromFile(month, day, exerciseName.trim().split(" "), caloriesBurned);
 
             return new CommandResult(feedbackToUser);
         } catch (NumberFormatException e) {
             throw new IncorrectFormatException("Please specify reasonable positive numbers in the month, day, and " +
                     "calories burned fields");
+        } catch (IOException e) {
+            throw new IOException("The ExerciseLog.txt file could not be found.");
         }
     }
 }
