@@ -1,5 +1,6 @@
 package seedu.duke.commands.logcommands;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -28,7 +29,7 @@ public class UpdateLogCommand extends Command {
      * @return CommandResult that tells the user whether an exercise was successfully updated.
      * @throws IncorrectFormatException when the command is not entered with the right type of parameters.
      */
-    public CommandResult execute() throws IncorrectFormatException {
+    public CommandResult execute() throws IncorrectFormatException, IOException {
         if (exerciseDetails.size() < 4) {
             throw new IncorrectFormatException("The update log command needs to take at least 4 parameters!");
         }
@@ -81,6 +82,8 @@ public class UpdateLogCommand extends Command {
             feedbackToUser = Duke.exerciseLog.updateExercise(month, day, oldExerciseName.trim(), oldCaloriesBurned,
                     newExerciseName.trim(), newCaloriesBurned) ? "Exercise successfully updated!" :
                     "Could not find exercise to update.";
+            Duke.storage.updateExerciseInFile(month, day, oldExerciseName.trim().split(" "), oldCaloriesBurned,
+                    newExerciseName.trim().split(" "), newCaloriesBurned);
 
             return new CommandResult(feedbackToUser);
         } catch (NumberFormatException e) {

@@ -87,4 +87,38 @@ public class StorageFile {
         textFile = new File("./data/ExerciseLog.txt");
         writeFile = new FileWriter(textFile.toPath().toString(), true);
     }
+
+    public void updateExerciseInFile(int month, int day, String[] oldExerciseName, int oldCaloriesBurned,
+                                     String[] newExerciseName, int newCaloriesBurned) throws IOException {
+        Scanner readFile = new Scanner(textFile);
+        File tempFile = new File("./data/temp.txt");
+        FileWriter tempWriter = new FileWriter(tempFile.toPath().toString());
+
+        String oldLine = "";
+        oldLine += Integer.toString(month) + ",";
+        oldLine += Integer.toString(day) + ",";
+        oldLine += String.join("_", oldExerciseName);
+        oldLine += "," + Integer.toString(oldCaloriesBurned);
+
+        String newLine = "";
+        newLine += Integer.toString(month) + ",";
+        newLine += Integer.toString(day) + ",";
+        newLine += String.join("_", newExerciseName);
+        newLine += "," + Integer.toString(newCaloriesBurned);
+
+        while (readFile.hasNextLine()) {
+            String line = readFile.nextLine();
+            if (!line.equals(oldLine)) {
+                tempWriter.write(line + "\n");
+            } else {
+                tempWriter.write(newLine + "\n");
+            }
+        }
+        readFile.close();
+        tempWriter.close();
+        textFile.delete();
+        tempFile.renameTo(textFile);
+        textFile = new File("./data/ExerciseLog.txt");
+        writeFile = new FileWriter(textFile.toPath().toString(), true);
+    }
 }
