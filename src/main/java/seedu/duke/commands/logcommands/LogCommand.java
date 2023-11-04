@@ -30,7 +30,7 @@ public class LogCommand extends Command {
      * @return CommandResult telling the user that the exercise was successfully added along with the exercise details.
      * @throws IncorrectFormatException when the command is not entered with the right type of parameters.
      */
-    public CommandResult execute() throws Exception {
+    public CommandResult execute() throws IncorrectFormatException, IOException {
         if (exerciseDetails.size() < 4) {
             throw new IncorrectFormatException("The log command needs to take at least 4 parameters!");
         }
