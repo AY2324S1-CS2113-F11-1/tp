@@ -1,5 +1,6 @@
 package seedu.duke.commands.logcommands;
 
+import java.io.IOException;
 import java.util.List;
 
 import seedu.duke.commands.Command;
@@ -53,11 +54,14 @@ public class LogCommand extends Command {
             }
 
             String exerciseDescription = Duke.exerciseLog.addExercise(month, day, exerciseName.trim(), caloriesBurned);
+            Duke.storage.writeExerciseToFile(month, day, exerciseName.trim().split(" "), caloriesBurned);
 
             return new CommandResult((feedbackToUser + exerciseDescription).trim());
         } catch (NumberFormatException e) {
             throw new IncorrectFormatException("Please specify reasonable positive numbers in the month, day, and " +
                     "calories burned fields");
+        } catch (IOException e) {
+            throw new IOException("The ExerciseLog.txt file could not be found.");
         }
     }
 }
