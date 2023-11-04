@@ -19,6 +19,10 @@ public class StorageFile {
         textFile = new File(textFileName);
     }
 
+    public static StorageFile initializeStorage(String dirName, String textFilePath) {
+        return new StorageFile(dirName, textFilePath);
+    }
+
     public void checkForTextFile(Log exerciseLog) throws IOException {
         if (dir.exists() && textFile.exists()) {
             try {
@@ -27,8 +31,7 @@ public class StorageFile {
                     textToExercise(s.nextLine().split(","), exerciseLog);
                 }
                 s.close();
-            }
-            catch (FileNotFoundException e) {
+            } catch (FileNotFoundException e) {
                 System.out.println(e);
             }
         }
@@ -42,6 +45,21 @@ public class StorageFile {
     }
 
     public static void textToExercise(String[] exerciseDetails, Log exerciseLog) {
+        int month = Integer.parseInt(exerciseDetails[0]);
+        int day = Integer.parseInt(exerciseDetails[1]);
+        String exerciseName = String.join(" ", exerciseDetails[2].split("_"));
+        int caloriesBurned = Integer.parseInt(exerciseDetails[3]);
+        exerciseLog.addExercise(month, day, exerciseName, caloriesBurned);
+    }
 
+    public void writeExerciseToFile(int month, int day, String[] exerciseName, int caloriesBurned)
+            throws IOException {
+        String writeToFile = "";
+        writeToFile += Integer.toString(month) + ",";
+        writeToFile += Integer.toString(day) + ",";
+        writeToFile += String.join("_", exerciseName);
+        writeToFile += "," + Integer.toString(caloriesBurned);
+        writeFile.write(writeToFile + "\n");
+        writeFile.flush();
     }
 }
