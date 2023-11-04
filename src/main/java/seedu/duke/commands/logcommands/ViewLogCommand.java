@@ -117,13 +117,13 @@ public class ViewLogCommand extends Command {
         } else {
             switch (viewScope) {
             case ALL:
-                result = Duke.exerciseLog.toString().trim();
+                result = Duke.exerciseLog.toString().stripTrailing();
                 return new CommandResult("Here are all the exercises:\n" + result);
             case MONTH:
-                result = Duke.exerciseLog.getMonth(month).toString().trim();
+                result = Duke.exerciseLog.getMonth(month).toString().stripTrailing();
                 return new CommandResult("Here are the exercises for the month:\n" + result);
             case DAY:
-                result = Duke.exerciseLog.getDay(month, day).toString().trim();
+                result = Duke.exerciseLog.getDay(month, day).toString().stripTrailing();
                 return new CommandResult("Here are the exercises for the day:\n" + result);
             default:
                 return new CommandResult("Invalid search type");
