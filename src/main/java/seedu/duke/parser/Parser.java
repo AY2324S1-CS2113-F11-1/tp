@@ -90,10 +90,11 @@ public class Parser {
         case ExitCommand.COMMAND_WORD:
             return new ExitCommand();
 
-        case HelpCommand.COMMAND_WORD: // Fallthrough
+        case HelpCommand.COMMAND_WORD:
+            return new HelpCommand();
 
         default:
-            return new HelpCommand();
+            return new IncorrectCommand("The command you inputted does not exist. Run `help` to see a list of available commands.0");
         }
     }
     // /**

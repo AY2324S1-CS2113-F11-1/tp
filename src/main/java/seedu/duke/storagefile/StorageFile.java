@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+import seedu.duke.data.exception.IllegalValueException;
 import seedu.duke.exerciselog.Log;
 
 public class StorageFile {
@@ -120,5 +121,24 @@ public class StorageFile {
         tempFile.renameTo(textFile);
         textFile = new File("./data/ExerciseLog.txt");
         writeFile = new FileWriter(textFile.toPath().toString(), true);
+    }
+
+    /**
+     * Signals that the given file path does not fulfill the storage filepath constraints.
+     */
+    public static class InvalidStorageFilePathException extends IllegalValueException {
+        public InvalidStorageFilePathException(String message) {
+            super(message);
+        }
+    }
+
+    /**
+     * Signals that some error has occured while trying to convert and read/write data between the application
+     * and the storage file.
+     */
+    public static class StorageOperationException extends Exception {
+        public StorageOperationException(String message) {
+            super(message);
+        }
     }
 }
