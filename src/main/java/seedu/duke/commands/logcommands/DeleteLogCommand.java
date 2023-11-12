@@ -15,10 +15,6 @@ public class DeleteLogCommand extends Command {
     public String feedbackToUser;
     private List<String> exerciseDetails;
 
-    public DeleteLogCommand() {
-        super();
-    }
-
     public DeleteLogCommand(List<String> exerciseDetails) {
         super();
         this.exerciseDetails = exerciseDetails;
@@ -59,7 +55,7 @@ public class DeleteLogCommand extends Command {
             feedbackToUser = Duke.exerciseLog.removeExercise(month, day, exerciseName.trim(), caloriesBurned) ?
                     "Successfully removed exercise!" :
                     "Could not find the specified exercise!";
-            Duke.exerciseLogStorage.removeExerciseFromFile(month, day, exerciseName.trim().split(" "), caloriesBurned);
+            Duke.exerciseLogStorage.deleteFromStorage(month, day, exerciseName.trim().split(" "), caloriesBurned);
 
             return new CommandResult(feedbackToUser);
         } catch (NumberFormatException e) {

@@ -85,7 +85,7 @@ public class UpdateLogCommand extends Command {
             feedbackToUser = Duke.exerciseLog.updateExercise(month, day, oldExerciseName.trim(), oldCaloriesBurned,
                     newExerciseName.trim(), newCaloriesBurned) ? "Exercise successfully updated!" :
                     "Could not find exercise to update.";
-            Duke.exerciseLogStorage.updateExerciseInFile(month, day,
+            Duke.exerciseLogStorage.updateInStorage(month, day,
                     oldExerciseName.trim().split(" "), oldCaloriesBurned,
                     newExerciseName.trim().split(" "), newCaloriesBurned);
 
