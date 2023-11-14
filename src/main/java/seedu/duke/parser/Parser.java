@@ -55,31 +55,8 @@ public class Parser {
         final String arguments = matcher.group("arguments");
 
         switch (commandWord) {
-
-            // case AddCommand.COMMAND_WORD:
-            // return prepareAdd(arguments);
-            //
-            // case DeleteCommand.COMMAND_WORD:
-            // return prepareDelete(arguments);
-            //
-            // case ClearCommand.COMMAND_WORD:
-            // return new ClearCommand();
-            //
-            // case FindCommand.COMMAND_WORD:
-            // return prepareFind(arguments);
-            //
-            // case ListCommand.COMMAND_WORD:
-            // return new ListCommand();
-            //
-            // case ViewCommand.COMMAND_WORD:
-            // return prepareView(arguments);
-            //
-            // case ViewAllCommand.COMMAND_WORD:
-            // return prepareViewAll(arguments);
-            //
-
-            case LogCommand.COMMAND_WORD:
-                return new LogCommand(Arrays.asList(arguments.trim().split(" ")));
+        case LogCommand.COMMAND_WORD:
+            return new LogCommand(Arrays.asList(arguments.trim().split(" ")));
 
             case DeleteLogCommand.COMMAND_WORD:
                 return new DeleteLogCommand(Arrays.asList(arguments.trim().split(" ")));
@@ -111,6 +88,7 @@ public class Parser {
             case AchieveGoalCommand.COMMAND_WORD:
                 return new AchieveGoalCommand(userInput);
 
+<<<<<<< HEAD
             case AchievementCommand.COMMAND_WORD:
                 return new AchievementCommand(userInput);
 
@@ -121,6 +99,13 @@ public class Parser {
 
             default:
                 return new HelpCommand();
+=======
+        case HelpCommand.COMMAND_WORD:
+            return new HelpCommand();
+
+        default:
+            return new IncorrectCommand("The command you inputted does not exist. Run `help` to see a list of available commands.0");
+>>>>>>> 6f8544610c1166de431eea3276b7711195b8bceb
         }
     }
     // /**
