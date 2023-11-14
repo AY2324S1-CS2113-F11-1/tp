@@ -28,7 +28,7 @@ public class ParserTest {
     }
 
     @Test
-    public void parse_unknownCommandWord_returnsHelp() {
+    public void parse_unknownCommandWord_returnsHelp() throws Exception {
         final String input = "unknowncommandword arguments arguments";
         parseAndAssertCommandType(input, HelpCommand.class);
     }
@@ -38,13 +38,13 @@ public class ParserTest {
      */
 
     @Test
-    public void parse_helpCommand_parsedCorrectly() {
+    public void parse_helpCommand_parsedCorrectly() throws Exception {
         final String input = "help";
         parseAndAssertCommandType(input, HelpCommand.class);
     }
 
     @Test
-    public void parse_exitCommand_parsedCorrectly() {
+    public void parse_exitCommand_parsedCorrectly() throws Exception {
         final String input = "exit";
         parseAndAssertCommandType(input, ExitCommand.class);
     }
@@ -56,7 +56,7 @@ public class ParserTest {
     /**
      * Asserts that parsing the given inputs will return IncorrectCommand with the given feedback message.
      */
-    private void parseAndAssertIncorrectWithMessage(String feedbackMessage, String... inputs) {
+    private void parseAndAssertIncorrectWithMessage(String feedbackMessage, String... inputs) throws Exception {
         for (String input : inputs) {
             final IncorrectCommand result = parseAndAssertCommandType(input, IncorrectCommand.class);
             assertEquals(result.feedbackToUser, feedbackMessage);
