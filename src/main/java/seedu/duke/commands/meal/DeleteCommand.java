@@ -1,7 +1,5 @@
 package seedu.duke.commands.meal;
 
-import seedu.duke.commands.CommandResult;
-
 import java.util.List;
 
 public class DeleteCommand extends MealCommand {

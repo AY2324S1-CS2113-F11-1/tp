@@ -1,10 +1,6 @@
 package seedu.duke.commands.goal;
 
 import seedu.duke.commands.Command;
-import seedu.duke.commands.CommandResult;
-import seedu.duke.data.exception.IncorrectFormatException;
-
-import java.io.IOException;
 
 public class DeleteGoalCommand extends Command {
     public static final String COMMAND_WORD = "deleteg";

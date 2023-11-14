@@ -1,6 +1,5 @@
 package seedu.duke.commands.meal;
 
-import seedu.duke.commands.CommandResult;
 import seedu.duke.data.Date;
 
 import java.util.List;
@@ -23,7 +22,7 @@ public class AddCommand extends MealCommand {
         if (arguments.size() >= 4) {
             time = new Date(arguments.get(3));
         } else {
-            time = Date.Now();
+            time = Date.now();
         }
     }
 }

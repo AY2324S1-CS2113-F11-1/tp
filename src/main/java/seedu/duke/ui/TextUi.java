@@ -2,7 +2,6 @@ package seedu.duke.ui;
 
 import static seedu.duke.common.Messages.MESSAGE_GOODBYE;
 import static seedu.duke.common.Messages.MESSAGE_INIT_FAILED;
-import static seedu.duke.common.Messages.MESSAGE_PROGRAM_LAUNCH_ARGS_USAGE;
 import static seedu.duke.common.Messages.MESSAGE_USING_STORAGE_FILE;
 import static seedu.duke.common.Messages.MESSAGE_WELCOME;
 

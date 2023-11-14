@@ -20,10 +20,10 @@ public class HelpCommand extends Command {
 
     @Override
     public CommandResult execute() {
-        String HelpMsg = HelpCommand.MESSAGE_USAGE + "\n";
+        String helpMsg = HelpCommand.MESSAGE_USAGE + "\n";
 
         return new CommandResult(
-                HelpMsg
+                helpMsg
                                 + "\n" + LogCommand.MESSAGE_USAGE
                                 + "\n" + DeleteLogCommand.MESSAGE_USAGE
                                 + "\n" + UpdateLogCommand.MESSAGE_USAGE

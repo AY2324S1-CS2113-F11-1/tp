@@ -80,7 +80,8 @@ public class Parser {
             return new ExitCommand();
 
         default:
-            return new IncorrectCommand("The command you inputted does not exist. Run `help` to see a list of available commands.");
+            return new IncorrectCommand("The command you inputted does not exist. Run `help` to see a" +
+                    "list of available commands.");
         }
     }
 
