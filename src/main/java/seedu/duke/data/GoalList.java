@@ -4,7 +4,6 @@ import seedu.duke.Duke;
 import seedu.duke.data.exception.IllegalValueException;
 import seedu.duke.data.exception.IncorrectFormatException;
 import seedu.duke.storagefile.GoalStorage;
-import seedu.duke.storagefile.StorageFile;
 import seedu.duke.ui.TextUi;
 
 import java.io.IOException;
@@ -19,11 +18,6 @@ public class GoalList extends ArrayList<Goal> {
     public GoalList() {
         goals = new ArrayList<>();
         this.goalCount = 0;
-    }
-
-    public GoalList(ArrayList<Goal> goals) {
-        this.goals = goals;
-        this.goalCount = goals.size();
     }
 
     public Goal getGoal(int index) {
