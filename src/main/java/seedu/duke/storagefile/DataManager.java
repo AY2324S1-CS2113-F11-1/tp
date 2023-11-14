@@ -12,7 +12,6 @@ import com.google.gson.reflect.TypeToken;
 import seedu.duke.Duke;
 import seedu.duke.data.Date;
 import seedu.duke.data.DateTime;
-import seedu.duke.data.meal.Meal;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,8 +21,6 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
 /**
  * A util used for managing the data of the program, using the io stream to
@@ -104,24 +101,6 @@ public class DataManager {
     }
 
     /**
-     * Convert a json String to an ArrayList<Meal>.
-     * 
-     * @param content A valid json String indicates an ArrayList<Meal>.
-     */
-    public static ArrayList<Meal> convertFromJsonToMealList(String json) {
-        Type type = new TypeToken<ArrayList<Meal>>() {
-        }.getType();
-
-        Gson gson = new GsonBuilder()
-                // .registerTypeAdapter(Meal.class, new MealAdapter())
-                // .registerTypeAdapter(DateTime.class, new DateTimeAdapter())
-                .registerTypeAdapter(Date.class, new DateAdapter())
-                .create();
-
-        return gson.fromJson(json, type);
-    }
-
-    /**
      * Serialize any object to json.
      * 
      * @param object Any variable that you want to serialize.
@@ -129,18 +108,6 @@ public class DataManager {
     public static String convertToJson(Object object) {
         Gson gson = new Gson();
         return gson.toJson(object);
-    }
-
-    /**
-     * Used for deserializing Meal with a custom rule.
-     */
-    private static class MealAdapter implements JsonDeserializer<Meal> {
-        @Override
-        public Meal deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
-                throws JsonParseException {
-            JsonObject jsonObject = json.getAsJsonObject();
-            return context.deserialize(jsonObject, Meal.class);
-        }
     }
 
     /**

@@ -18,15 +18,4 @@ public class DeleteCommand extends MealCommand {
             throw new Exception("Invalid index!");
         }
     }
-
-    @Override
-    public CommandResult execute() throws Exception {
-        if (meals.size() <= index) {
-            return new CommandResult("Exceeded index!");
-        }
-        CommandResult result = new CommandResult(
-                "Successfully delete meal at index " + index + "!\n" + meals.get(index));
-        meals.remove(index);
-        return result;
-    }
 }

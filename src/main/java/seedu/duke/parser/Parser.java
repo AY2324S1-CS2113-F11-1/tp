@@ -11,12 +11,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import seedu.duke.commands.Command;
-import seedu.duke.commands.ExitCommand;
-import seedu.duke.commands.goal.GoalCommand;
 import seedu.duke.commands.goal.DeleteGoalCommand;
 import seedu.duke.commands.goal.ViewGoalCommand;
 import seedu.duke.commands.goal.AchieveGoalCommand;
-import seedu.duke.commands.goal.AchievementCommand;
 import seedu.duke.commands.HelpCommand;
 import seedu.duke.commands.IncorrectCommand;
 import seedu.duke.commands.logcommands.LogCommand;
@@ -73,12 +70,6 @@ public class Parser {
         case DeleteCommand.COMMAND_WORD:
             return new DeleteCommand(Arrays.asList(arguments.trim().split(" ")));
 
-        case ListCommand.COMMAND_WORD:
-            return new ListCommand(Arrays.asList(arguments.trim().split(" ")));
-
-        case GoalCommand.COMMAND_WORD:
-            return new GoalCommand(userInput);
-
         case DeleteGoalCommand.COMMAND_WORD:
             return new DeleteGoalCommand(userInput);
 
@@ -92,7 +83,7 @@ public class Parser {
             return new HelpCommand();
 
         default:
-            return new IncorrectCommand("The command you inputted does not exist. Run `help` to see a list of available commands.0");
+            return new IncorrectCommand("The command you inputted does not exist. Run `help` to see a list of available commands.");
         }
     }
 
