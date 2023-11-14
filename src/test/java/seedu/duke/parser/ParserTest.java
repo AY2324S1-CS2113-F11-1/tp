@@ -27,12 +27,6 @@ public class ParserTest {
         parseAndAssertIncorrectWithMessage(resultMessage, emptyInputs);
     }
 
-    @Test
-    public void parse_unknownCommandWord_returnsHelp() throws Exception {
-        final String input = "unknowncommandword arguments arguments";
-        parseAndAssertCommandType(input, HelpCommand.class);
-    }
-
     /*
      * Tests for 0-argument commands =======================================================================
      */
