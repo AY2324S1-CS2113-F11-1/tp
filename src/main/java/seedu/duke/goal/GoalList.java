@@ -34,6 +34,9 @@ public class GoalList extends ArrayList<GoalList.Goal> {
      * It also decrements goalCount by 1
      * @param cmd Raw user Command
      * @return message of succeeding to delete goal and tell user the updated total number of goals
+     * @throws IOException if failed to access output file
+     * @throws NumberFormatException if index is invalid number
+     * @throws IncorrectFormatException is user command is in incorrect format
      */
     public static String deleteGoal(String cmd) throws IncorrectFormatException,
             NumberFormatException, IOException {
@@ -140,22 +143,24 @@ public class GoalList extends ArrayList<GoalList.Goal> {
      * If not, terminate the method and throws error message.
      * If yes, continue to add a new goal object into the goals list.
      * @param userCmd represents raw user input
-     * @param targetList represents to target list to add new goal
+     * @param target represents to target list to add new goal
      * @param storage represents the target storage to update goal data
+     * @return String about succeeding to create goal object
      * @throws IncorrectFormatException if user input is in wrong format
      * @throws NumberFormatException if the user does not input a valid number
+     * @throws IOException if failed to access and update output file
      */
-    public static String addGoal(String userCmd, GoalList targetList, GoalStorage storage)
-            throws IncorrectFormatException, NumberFormatException, IOException {
+    public static String addGoal(String userCmd, GoalList target, GoalStorage storage) throws IncorrectFormatException,
+            NumberFormatException, IOException {
         verifyGoalInput(userCmd); //if invalid, exceptions is thrown
 
         String[] cmdSplit = userCmd.split(" ");
         int calories = Integer.parseInt(cmdSplit[1]);
         String date = cmdSplit[3];
 
-        targetList.goals.add(new Goal(calories, date));
-        targetList.goalCount++;
-        storage.overwriteGoalToFile(targetList);
+        target.goals.add(new Goal(calories, date));
+        target.goalCount++;
+        storage.overwriteGoalToFile(target);
 
         return TextUi.addGoalSuccessMessage();
     }

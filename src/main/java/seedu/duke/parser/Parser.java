@@ -11,16 +11,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import seedu.duke.commands.Command;
+import seedu.duke.commands.HelpCommand;
+import seedu.duke.commands.goal.GoalCommand;
 import seedu.duke.commands.goal.DeleteGoalCommand;
 import seedu.duke.commands.goal.ViewGoalCommand;
-import seedu.duke.commands.goal.AchieveGoalCommand;
 import seedu.duke.commands.goal.AchievementCommand;
+import seedu.duke.commands.goal.AchieveGoalCommand;
 import seedu.duke.commands.IncorrectCommand;
-import seedu.duke.commands.HelpCommand;
 import seedu.duke.commands.logcommands.LogCommand;
 import seedu.duke.commands.logcommands.DeleteLogCommand;
 import seedu.duke.commands.logcommands.ViewLogCommand;
 import seedu.duke.commands.logcommands.UpdateLogCommand;
+import seedu.duke.data.exception.IllegalValueException;
 import seedu.duke.commands.ExitCommand;
 
 public class Parser {
@@ -40,7 +42,7 @@ public class Parser {
      *
      * @param userInput full user input string
      * @return the command based on the user input
-     * @throws Exception if the input cannot be parsed
+     * @throws Exception if unexpected exception occurs
      */
     public Command parseCommand(String userInput) throws Exception {
         final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
@@ -63,6 +65,9 @@ public class Parser {
 
         case UpdateLogCommand.COMMAND_WORD:
             return new UpdateLogCommand(Arrays.asList(arguments.trim().split(" ")));
+
+        case GoalCommand.COMMAND_WORD:
+            return new GoalCommand(userInput);
 
         case DeleteGoalCommand.COMMAND_WORD:
             return new DeleteGoalCommand(userInput);
@@ -100,7 +105,7 @@ public class Parser {
      * Extracts the new person's tags from the add command's tag arguments string.
      * Merges duplicate tag strings.
      */
-    private static Set<String> getTagsFromArgs(String tagArguments) {
+    private static Set<String> getTagsFromArgs(String tagArguments) throws IllegalValueException {
         // no tags
         if (tagArguments.isEmpty()) {
             return Collections.emptySet();
@@ -135,5 +140,4 @@ public class Parser {
             super(message);
         }
     }
-
 }
