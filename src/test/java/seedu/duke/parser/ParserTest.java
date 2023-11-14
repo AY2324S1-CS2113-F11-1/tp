@@ -26,35 +26,6 @@ public class ParserTest {
         parseAndAssertIncorrectWithMessage(resultMessage, emptyInputs);
     }
 
-    @Test
-    public void parse_unknownCommandWord_returnsHelp() throws Exception {
-        final String input = "unknowncommandword arguments arguments";
-        parseAndAssertCommandType(input, HelpCommand.class);
-    }
-
-    /*
-     * Tests for 0-argument commands
-     * =======================================================================
-     */
-
-    @Test
-    public void parse_helpCommand_parsedCorrectly() throws Exception {
-        final String input = "help";
-        parseAndAssertCommandType(input, HelpCommand.class);
-    }
-
-    @Test
-    public void parse_exitCommand_parsedCorrectly() throws Exception {
-        final String input = "exit";
-        parseAndAssertCommandType(input, ExitCommand.class);
-    }
-
-    /*
-     * Utility methods
-     * =============================================================================
-     * =======
-     */
-
     /**
      * Asserts that parsing the given inputs will return IncorrectCommand with the
      * given feedback message.

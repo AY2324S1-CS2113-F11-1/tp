@@ -3,8 +3,16 @@ package seedu.duke;
 import seedu.duke.commands.Command;
 import seedu.duke.commands.CommandResult;
 import seedu.duke.commands.ExitCommand;
+<<<<<<< HEAD
 import seedu.duke.parser.Parser;
 import seedu.duke.exerciselog.Log;
+=======
+import seedu.duke.data.GoalList;
+import seedu.duke.parser.Parser;
+import seedu.duke.exerciselog.Log;
+import seedu.duke.storagefile.AchmStorage;
+import seedu.duke.storagefile.GoalStorage;
+>>>>>>> 0a3c513e45fa2a1adf7d319ab7869f8eeef1ae21
 import seedu.duke.ui.TextUi;
 import seedu.duke.storagefile.ExerciseLogStorage;
 
@@ -19,8 +27,15 @@ public class Duke {
      */
     public static final String VERSION = "Version-2.1";
     public static Log exerciseLog = new Log();
+    public static GoalList goalList = new GoalList();
+    public static GoalList achievedGoals = new GoalList();
     public static ExerciseLogStorage exerciseLogStorage;
     public static TextUi ui;
+<<<<<<< HEAD
+=======
+    public static GoalStorage goalStorage;
+    public static AchmStorage achmStorage;
+>>>>>>> 0a3c513e45fa2a1adf7d319ab7869f8eeef1ae21
     private final String dirPath = "data";
     private final String exerciseLogFilePath = "./data/ExerciseLog.txt";
     private final String goalFilePath = "./data/GoalRecord.txt";
@@ -107,17 +122,4 @@ public class Duke {
         }
     }
 
-    // /**
-    // * Creates the StorageFile object based on the user specified path (if any) or
-    // the default storage path.
-    // * @param launchArgs arguments supplied by the user at program launch
-    // * @throws InvalidStorageFilePathException if the target file path is
-    // incorrect.
-    // */
-    // private StorageFile initializeStorage(String[] launchArgs) throws
-    // InvalidStorageFilePathException {
-    // boolean isStorageFileSpecifiedByUser = launchArgs.length > 0;
-    // return isStorageFileSpecifiedByUser ? new StorageFile(launchArgs[0]) : new
-    // StorageFile();
-    // }
 }

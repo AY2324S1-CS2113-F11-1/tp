@@ -13,7 +13,11 @@ import java.util.Optional;
 import java.util.Scanner;
 
 import seedu.duke.commands.CommandResult;
+<<<<<<< HEAD
 import seedu.duke.data.Goal;
+=======
+import seedu.duke.data.GoalList;
+>>>>>>> 0a3c513e45fa2a1adf7d319ab7869f8eeef1ae21
 import seedu.duke.data.Printable;
 
 /**
@@ -201,13 +205,81 @@ public class TextUi {
         return "You now have " + goalCount + " goals to accomplish.";
     }
 
-    public static String deleteGoalMsg(Goal deletedGoal) {
+    public static String deleteGoalMsg(GoalList.Goal deletedGoal) {
 
         return "Good. I have removed this goal: " + deletedGoal + "\n"
                 + "Remember not to give up unaccomplished target!" + "\n";
 
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * This method is used to implement Goal commend execution, when adding a new goal
+     * @return string contains information of generating a new goal successfully
+     */
+    public static String addGoalSuccessMessage() {
+        int currentNoOfGoal = Duke.goalList.getGoalCount();
+        GoalList.Goal newlyAddedGoal = Duke.goalList.getGoal(currentNoOfGoal - 1);
+        return "Nice! I have added the following goal to your goals list: \n\t" + newlyAddedGoal;
+    }
+
+    /**
+     * This is used to show the content inside the goal list.
+     * It first checks if the list contains at least one goal,
+     * then print the goal by using string builder.
+     * @return String containing all the inserted goal in the global field goal list
+     */
+    public static String showGoalList() {
+        int numberOfGoal = Duke.goalList.getGoalCount();
+        if (numberOfGoal == 0) {
+            return "Oh not! You don't have any goal to achieve currently.";
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("Here you go! Remember to stick to your exercise and meal plans.\n");
+        for (int i = 0; i < numberOfGoal; i++){
+            sb.append(i + 1).append(". ").append(Duke.goalList.getGoal(i)).append("\n");
+        }
+
+        return sb.toString();
+    }
+
+    /**
+     * Similar to show Goal List. This method is used to list out all achieved goal in record.
+     * @return String containing all achieved goal
+     */
+    public static String showAchievement() {
+        int numberOfGoal = Duke.achievedGoals.getGoalCount();
+        if (numberOfGoal == 0) {
+            return "Add oil! There is no achievement found.";
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("Congratulation! See your achievements below: \n");
+        for (int i = 0; i < numberOfGoal; i++){
+            sb.append(i + 1).append(". [A]").append(Duke.achievedGoals.getGoal(i)).append("\n");
+        }
+
+        return sb.toString();
+    }
+
+    /**
+     * This method return content of goal list in any goalList object
+     * It is typically used to overwrite save file whenever change in goal records
+     * @param goals a GoalList object
+     * @return String containing goal information of the goal object
+     */
+    public static String contentOfGoalList(GoalList goals) {
+        if (goals.getGoalCount() == 0) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < goals.getGoalCount(); i++){
+            sb.append(goals.getGoal(i)).append("\n");
+        }
+        return sb.toString();
+    }
+
+>>>>>>> 0a3c513e45fa2a1adf7d319ab7869f8eeef1ae21
     public static String buildingFileMsg() {
         return "Building new save file...\n" + "Building new file succeed!";
     }

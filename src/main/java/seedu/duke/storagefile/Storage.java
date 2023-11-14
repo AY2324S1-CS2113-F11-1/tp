@@ -1,14 +1,17 @@
 package seedu.duke.storagefile;
 
-import java.io.IOException;
+import java.io.File;
+import java.io.FileWriter;
 
-abstract class Storage {
-    public abstract void writeToStorage(int firstInt, int secondInt, String[] stringArray, int thirdInt)
-            throws IOException;
+class Storage {
 
-    public abstract void deleteFromStorage(int firstInt, int secondInt, String[] stringArray, int thirdInt)
-            throws IOException;
+    protected File dir;
+    protected File textFile;
+    protected FileWriter writeFile;
 
-    public abstract void updateInStorage(int firstInt, int secondInt, String[] firstStringArray, int thirdInt,
-            String[] secondStringArray, int fourthInt) throws IOException;
+    public Storage(String dirName, String textFileName) {
+        dir = new File(dirName);
+        textFile = new File(textFileName);
+    }
+
 }
