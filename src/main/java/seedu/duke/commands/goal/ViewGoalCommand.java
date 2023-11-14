@@ -4,39 +4,29 @@ import seedu.duke.commands.Command;
 import seedu.duke.commands.CommandResult;
 import seedu.duke.goal.GoalList;
 import seedu.duke.data.exception.IncorrectFormatException;
+import seedu.duke.ui.TextUi;
 
-import java.io.IOException;
+public class ViewGoalCommand extends Command {
 
-public class DeleteGoalCommand extends Command {
-    public static final String COMMAND_WORD = "deleteg";
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Delete an goal from the current goal list.\n"
-            + "\tExample: " + COMMAND_WORD + " 1";
+    public static final String COMMAND_WORD = "viewg";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": List out the current goal list to see.\n"
+            + "\tExample: " + COMMAND_WORD;
     public String feedbackToUser;
 
-    public DeleteGoalCommand(String cmd) {
+    public ViewGoalCommand(String cmd) {
         super(cmd);
     }
 
-    /**
-     * execute to remove a goal object from global goal list, by indexing
-     * If failed to delete a goal, tells user the specific problem.
-     * @return feedback to user of either success or fail
-     */
     @Override
     public CommandResult execute() {
         try {
-            feedbackToUser = GoalList.deleteGoal(this.userCommand);
-
-        } catch (NumberFormatException nfe) {
-            feedbackToUser = "Please input a valid number for delete index.";
+            GoalList.verifyViewGoalInput(this.userCommand);
+            feedbackToUser = TextUi.showGoalList();
         } catch (IncorrectFormatException ife) {
             feedbackToUser = ife.getMessage();
-        } catch (IOException io) {
-            feedbackToUser = "Failed to save data. Please check the output file and restart the app.";
         } catch (Exception e) {
             feedbackToUser = "Something went wrong, please try again.";
         }
-
 
         return new CommandResult(feedbackToUser);
     }
