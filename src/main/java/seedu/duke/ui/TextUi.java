@@ -13,12 +13,9 @@ import java.util.Optional;
 import java.util.Scanner;
 
 import seedu.duke.commands.CommandResult;
-<<<<<<< HEAD
-import seedu.duke.data.Goal;
-=======
 import seedu.duke.data.GoalList;
->>>>>>> 0a3c513e45fa2a1adf7d319ab7869f8eeef1ae21
 import seedu.duke.data.Printable;
+import seedu.duke.Duke;
 
 /**
  * Text UI of the application.
@@ -212,8 +209,6 @@ public class TextUi {
 
     }
 
-<<<<<<< HEAD
-=======
     /**
      * This method is used to implement Goal commend execution, when adding a new goal
      * @return string contains information of generating a new goal successfully
@@ -279,7 +274,6 @@ public class TextUi {
         return sb.toString();
     }
 
->>>>>>> 0a3c513e45fa2a1adf7d319ab7869f8eeef1ae21
     public static String buildingFileMsg() {
         return "Building new save file...\n" + "Building new file succeed!";
     }

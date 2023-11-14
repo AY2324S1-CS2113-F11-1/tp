@@ -3,16 +3,11 @@ package seedu.duke;
 import seedu.duke.commands.Command;
 import seedu.duke.commands.CommandResult;
 import seedu.duke.commands.ExitCommand;
-<<<<<<< HEAD
-import seedu.duke.parser.Parser;
-import seedu.duke.exerciselog.Log;
-=======
 import seedu.duke.data.GoalList;
 import seedu.duke.parser.Parser;
 import seedu.duke.exerciselog.Log;
 import seedu.duke.storagefile.AchmStorage;
 import seedu.duke.storagefile.GoalStorage;
->>>>>>> 0a3c513e45fa2a1adf7d319ab7869f8eeef1ae21
 import seedu.duke.ui.TextUi;
 import seedu.duke.storagefile.ExerciseLogStorage;
 
@@ -31,11 +26,8 @@ public class Duke {
     public static GoalList achievedGoals = new GoalList();
     public static ExerciseLogStorage exerciseLogStorage;
     public static TextUi ui;
-<<<<<<< HEAD
-=======
     public static GoalStorage goalStorage;
     public static AchmStorage achmStorage;
->>>>>>> 0a3c513e45fa2a1adf7d319ab7869f8eeef1ae21
     private final String dirPath = "data";
     private final String exerciseLogFilePath = "./data/ExerciseLog.txt";
     private final String goalFilePath = "./data/GoalRecord.txt";
