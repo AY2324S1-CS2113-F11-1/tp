@@ -24,6 +24,7 @@ public class Date {
 
     /**
      * @param rawData refers to the date String
+     * @param NotAllowPast true for all goal related commands only
      * @throws IncorrectFormatException if failed to parse date string input
      */
     public Date(String rawData, Boolean  notAllowPast) throws IncorrectFormatException {
