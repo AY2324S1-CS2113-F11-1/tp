@@ -1,6 +1,7 @@
-package seedu.duke.data;
+package seedu.duke.goal;
 
 import seedu.duke.Duke;
+import seedu.duke.data.Date;
 import seedu.duke.data.exception.IllegalValueException;
 import seedu.duke.data.exception.IncorrectFormatException;
 import seedu.duke.storagefile.GoalStorage;
@@ -69,7 +70,7 @@ public class GoalList extends ArrayList<GoalList.Goal> {
      * 3. check if user inputs a calories number at valid range
      * The userCmd should be like: set 1234 on Date
      * @param userCmd represents the raw userInput
-     * @throws IncorrectFormatException instruction in the wrong format
+     * @throws IncorrectFormatException
      */
     private static void verifyGoalInput(String userCmd) throws IncorrectFormatException, NumberFormatException {
 
@@ -139,13 +140,12 @@ public class GoalList extends ArrayList<GoalList.Goal> {
      * If not, terminate the method and throws error message.
      * If yes, continue to add a new goal object into the goals list.
      * @param userCmd represents raw user input
-     * @param targetList represents to target list to add new goal
+     * @param Targetlist represents to target list to add new goal
      * @param storage represents the target storage to update goal data
      * @throws IncorrectFormatException if user input is in wrong format
      * @throws NumberFormatException if the user does not input a valid number
      */
-    public static String addGoal(String userCmd, GoalList targetList, GoalStorage storage)
-            throws IncorrectFormatException,
+    public static String addGoal(String userCmd, GoalList Targetlist, GoalStorage storage) throws IncorrectFormatException,
             NumberFormatException, IOException {
         verifyGoalInput(userCmd); //if invalid, exceptions is thrown
 
@@ -153,9 +153,9 @@ public class GoalList extends ArrayList<GoalList.Goal> {
         int calories = Integer.parseInt(cmdSplit[1]);
         String date = cmdSplit[3];
 
-        targetList.goals.add(new Goal(calories, date));
-        targetList.goalCount++;
-        storage.overwriteGoalToFile(targetList);
+        Targetlist.goals.add(new Goal(calories, date));
+        Targetlist.goalCount++;
+        storage.overwriteGoalToFile(Targetlist);
 
         return TextUi.addGoalSuccessMessage();
     }
@@ -203,4 +203,3 @@ public class GoalList extends ArrayList<GoalList.Goal> {
         }
     }
 }
-
