@@ -21,7 +21,7 @@ import seedu.duke.commands.logcommands.DeleteLogCommand;
 import seedu.duke.commands.logcommands.ViewLogCommand;
 import seedu.duke.commands.logcommands.UpdateLogCommand;
 import seedu.duke.data.exception.IllegalValueException;
-import seedu.duke.commands.meal.*;
+import seedu.duke.commands.ExitCommand;
 
 public class Parser {
 
@@ -64,12 +64,6 @@ public class Parser {
         case UpdateLogCommand.COMMAND_WORD:
             return new UpdateLogCommand(Arrays.asList(arguments.trim().split(" ")));
 
-        case AddCommand.COMMAND_WORD:
-            return new AddCommand(Arrays.asList(arguments.trim().split(" ")));
-
-        case DeleteCommand.COMMAND_WORD:
-            return new DeleteCommand(Arrays.asList(arguments.trim().split(" ")));
-
         case DeleteGoalCommand.COMMAND_WORD:
             return new DeleteGoalCommand(userInput);
 
@@ -81,6 +75,9 @@ public class Parser {
 
         case HelpCommand.COMMAND_WORD:
             return new HelpCommand();
+
+        case ExitCommand.COMMAND_WORD:
+            return new ExitCommand();
 
         default:
             return new IncorrectCommand("The command you inputted does not exist. Run `help` to see a list of available commands.");
