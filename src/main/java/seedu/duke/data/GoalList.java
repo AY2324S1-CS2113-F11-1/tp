@@ -3,7 +3,6 @@ package seedu.duke.data;
 import seedu.duke.Duke;
 import seedu.duke.data.exception.IllegalValueException;
 import seedu.duke.data.exception.IncorrectFormatException;
-import seedu.duke.data.exception.InvalidDateException;
 import seedu.duke.storagefile.GoalStorage;
 import seedu.duke.storagefile.StorageFile;
 import seedu.duke.ui.TextUi;
@@ -151,8 +150,8 @@ public class GoalList extends ArrayList<Goal> {
      * @throws IncorrectFormatException if user input is in wrong format
      * @throws NumberFormatException if the user does not input a valid number
      */
-    public static String addGoal(String userCmd, GoalList Targetlist, GoalStorage storage) throws IncorrectFormatException, NumberFormatException,
-            InvalidDateException, IOException {
+    public static String addGoal(String userCmd, GoalList Targetlist, GoalStorage storage) throws IncorrectFormatException,
+            NumberFormatException, IOException {
         verifyGoalInput(userCmd); //if invalid, exceptions is thrown
 
         String[] cmdSplit = userCmd.split(" ");
