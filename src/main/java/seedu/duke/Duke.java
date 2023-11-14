@@ -8,6 +8,7 @@ import seedu.duke.commands.ExitCommand;
 import seedu.duke.commands.meal.MealCommand;
 import seedu.duke.data.GoalList;
 import seedu.duke.data.meal.Meal;
+import seedu.duke.exerciselog.Exercise;
 import seedu.duke.parser.Parser;
 import seedu.duke.exerciselog.Log;
 import seedu.duke.storagefile.AchmStorage;
@@ -25,11 +26,11 @@ public class Duke {
     /**
      * Version info of the program.
      */
-    public static final String VERSION = "Version-2.0";
-    public static GoalList goalList = new GoalList();
+    public static final String VERSION = "Version-2.1";
+    public static GoalList goals = new GoalList();
     public static GoalList achievedGoals = new GoalList();
     public static Log exerciseLog = new Log();
-    public static StorageFile exerciseLogStorage;
+    public static ExerciseLogStorage exerciseLogStorage;
     public static GoalStorage goalStorage;
     public static AchmStorage achmStorage;
     private static ArrayList<Meal> meals = new ArrayList<Meal>();
