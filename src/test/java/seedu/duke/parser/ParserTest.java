@@ -21,7 +21,7 @@ public class ParserTest {
     }
 
     @Test
-    public void parse_emptyInput_returnsIncorrect() {
+    public void parse_emptyInput_returnsIncorrect() throws Exception {
         final String[] emptyInputs = { "", "  ", "\n  \n" };
         final String resultMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE);
         parseAndAssertIncorrectWithMessage(resultMessage, emptyInputs);
