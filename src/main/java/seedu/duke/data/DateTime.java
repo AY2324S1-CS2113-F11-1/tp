@@ -22,33 +22,12 @@ public class DateTime {
     public String standardString;
     transient LocalDateTime dateTime;
 
-    // @SerializedName("rawData")
-
-    /**
-     * Create a new date time.
-     *
-     * @param rawData A String that needs to comply with a supported format and
-     *                indicates a correct time that will be recorded by this Date
-     *                instance time.
-     * @throws TipsException Any excption will be throw in this type, which contains
-     *                       information about this exception and the possible
-     *                       solution.
-     */
     public DateTime(String rawData) throws Exception {
         setRawData(rawData);
     }
 
-    /**
-     * Modifying an existing date time with a rawData String.
-     *
-     * @param rawData A String that needs to comply with a supported format and
-     *                indicates a correct time that will be recorded by this Date
-     *                instance.
-     * @throws TipsException Any excption will be throw in this type, which contains
-     *                       information about this exception and the possible
-     *                       solution.
-     */
     public void setRawData(String rawData) throws Exception {
+        System.out.println(rawData);
         for (DateTimeFormatter formatter : formatters) {
             try {
                 dateTime = LocalDateTime.parse(rawData, formatter);
@@ -104,5 +83,10 @@ public class DateTime {
             return 1;
         }
         return 0;
+    }
+
+    public static DateTime Now() throws Exception {
+        DateTime now = new DateTime(LocalDateTime.now().format(toStringFormatter));
+        return now;
     }
 }
