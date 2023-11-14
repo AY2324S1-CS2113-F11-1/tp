@@ -7,13 +7,11 @@ FITNUS is a desktop fitness tracking application that allows NUS students to set
 
 ## Contributions
 
-### The ExerciseLog Class
-The way that I contributed to the project is by creating and implementing the ExerciseLog class and its associated classes. For example,
-there are specific commands that users who want to interact with the exercise log can use, which are the log, delete, update, and view commands.
-This gives the user full CRUD functionality of the exercise log.
+### The Calorie Goal Class
+The way that I contributed to the project is by creating and implementing the Goal class and its associated classes including the various goal command classes, goal and goalList data type classes, and goal storage class. The app now allows user to input a new calories consumption target on a particular date. It is able to spot errors if the user input a wrong date that is passed or not in the designated format. It also allows user to make achievement from goals, with supported view function and delete function.
 
 ### Documentation
-I contributed to the UG in the parts that are related to the ExerciseLog class and the introduction. In the DG, I contributed to the `Update Exercises from Log feature` section and all the diagrams in that section.
+I contributed to the UG in the parts that are related to goal related classes. In the DG, I contributed to the `Adding a new exercise goal` section.
 
 ### Team-Based Tasks
 * Release various issues about improvement and bug reports of the app
@@ -21,5 +19,8 @@ I contributed to the UG in the parts that are related to the ExerciseLog class a
 * Correct coding style problems for all classes before v2.1 
 * Update UG for calorie goal related functionality
 * Add table of content with markdowns for all parts in UG
-* Change the title style, add features and future developments in UG to enhance completeness
+* Add questions and answers for FAQs part in UG
+* Add features and future developments in UG to enhance completeness
 * Add more detailed method documentations to improve readibility
+* Change the overall user input processing to allow more flexible inputs for all functionalities
+* Review code contributed by teammates

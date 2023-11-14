@@ -15,7 +15,7 @@ import seedu.duke.storagefile.AchmStorage;
 import seedu.duke.storagefile.DataManager;
 import seedu.duke.storagefile.GoalStorage;
 import seedu.duke.ui.TextUi;
-import seedu.duke.storagefile.StorageFile;
+import seedu.duke.storagefile.ExerciseLogStorage;
 
 /**
  * Entry point of the Address Book application.
@@ -63,7 +63,7 @@ public class Duke {
      */
     private void start(String[] launchArgs) {
         try {
-            ui = new TextUi();
+            this.ui = new TextUi();
             exerciseLogStorage = StorageFile.initializeStorage(dirPath, exerciseLogFilePath);
             exerciseLogStorage.checkForLogTextFile(exerciseLog);
             goalStorage = GoalStorage.initializeGoalStorage(dirPath, goalFilePath);
