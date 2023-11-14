@@ -32,7 +32,7 @@ public class GoalList extends ArrayList<GoalList.Goal> {
     /**
      * This method removes a goal object from the global field goals list by indexing
      * It also decrements goalCount by 1
-     * @param cmd Raw user Command
+     * @param cmd Raw user command
      * @return message of succeeding to delete goal and tell user the updated total number of goals
      * @throws IOException if failed to access output file
      * @throws NumberFormatException if index is invalid number
