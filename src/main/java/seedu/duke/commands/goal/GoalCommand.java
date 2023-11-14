@@ -43,5 +43,4 @@ public class GoalCommand extends Command {
 
         return new CommandResult(feedbackToUser);
     }
-
 }
